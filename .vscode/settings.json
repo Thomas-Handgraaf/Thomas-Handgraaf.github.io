@@ -1,0 +1,9 @@
+{
+    "editor.tokenColorCustomizations": {
+    "textMateRules": [
+        { "scope": "string", "settings": { "foreground": "#ce9982" } },
+        { "scope": "comment", "settings": { "foreground": "#8fc76d90" } },
+        { "scope": "entity.name.tag.html", "settings": { "foreground": "#569CD6" } },
+     ]
+}
+}

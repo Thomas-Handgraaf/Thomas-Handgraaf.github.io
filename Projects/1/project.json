@@ -1,0 +1,29 @@
+{
+  "id": 1,
+  "title": "Audio Raytracer",
+  "main-tags": "Unity, C#",
+  "tags": "Real-Time, Async, DOTS",
+  "githubUrl": "https://github.com/thomashandgraaf/audio-raytracer",
+  "description": "A hyper optimized real time raycasting solution for audio spatialization in 3D environments.",
+  "detailedDescription": "In this project, I created a highly optimized real-time raycasting solution for audio spatialization in 3D environments. <br>The system simulates audio propagation by casting hundreds of invisible, bouncing rays outward from the player into the environment. Using these rays, it gathers material data to calculate echo, volume, and accurate sound direction. The system processes rays in groups and waits for each group to complete before dispatching the next, allowing it to run fully asynchronously.<br><i><small>Disclaimer: This project is currently a work in progress and some of the features are not yet finished.</i></small>",
+  "coverImage": "cover.png",
+  "projectUrl": "project.html",
+  "assets": {
+    "images": [
+      {
+        "path": "cover.png",
+        "description": ""
+      }
+    ],
+    "videos": [
+      {
+        "path": "demo1.mp4",
+        "description": "This is a demo video showcasing the audio raytracer in action.<br> It demonstrates echo, volume changes (Muffle), and accurate 3D sound spatialization. (Including above and below)"
+      },
+      {
+        "path": "demo2.mp4",
+        "description": "This is a demo video visualising the raycasts<small>¹</small>.<br> The green lines are the actual raycasts and the light blue cubes on the walls and ceiling are where they 'bounce' on a surface.<br> <small>¹<small> For performance reasons I can only show 300ish rays for this visualisation, but the real simulation can have up to 2500 rays</small></small>"
+      }
+    ]
+  }
+}

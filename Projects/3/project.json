@@ -1,0 +1,13 @@
+{
+  "id": 3,
+  "title": "Machine Learning",
+  "githubUrl": "https://github.com/thomashandgraaf/machine-learning",
+  "description": "A machine learning project demonstrating advanced algorithms and predictive modeling.",
+  "detailedDescription": "This project implements state-of-the-art machine learning algorithms for classification, regression, and clustering tasks. It includes model training, evaluation, hyperparameter tuning, and deployment considerations for production environments.",
+  "coverImage": "cover.png",
+  "projectUrl": "project.html",
+  "assets": {
+    "images": ["cover.png"],
+    "videos": []
+  }
+}

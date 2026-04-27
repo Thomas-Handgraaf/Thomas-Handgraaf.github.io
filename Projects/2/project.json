@@ -1,0 +1,13 @@
+{
+  "id": 2,
+  "title": "Data Analysis",
+  "githubUrl": "https://github.com/thomashandgraaf/data-analysis",
+  "description": "A comprehensive data analysis project with insightful visualizations and findings.",
+  "detailedDescription": "This project explores complex datasets using advanced statistical methods and data visualization techniques. It includes exploratory data analysis, predictive modeling, and comprehensive reporting of key findings and insights.",
+  "coverImage": "cover.png",
+  "projectUrl": "project.html",
+  "assets": {
+    "images": ["cover.png"],
+    "videos": []
+  }
+}
