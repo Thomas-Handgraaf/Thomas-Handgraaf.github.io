@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Loading Project...</title>
+        <meta name="description" content>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="project-style.css">
+    </head>
+    <body>
+        <h1 id="project-title"></h1>
+        <p id="project-description"></p>
+
+        <div class="carousel-layout">
+
+            <!-- LEFT SIDE: carousel + indicators -->
+            <div>
+                <div id="carousel-container">
+                    <button id="carousel-prev" class="carousel-button prev">❮</button>
+                    <div id="carousel-content"></div>
+                    <button id="carousel-next" class="carousel-button next">❯</button>
+                </div>
+
+                <div id="carousel-indicators-container">
+                    <div id="carousel-indicators"></div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE: description -->
+            <div id="asset-description">
+                <p id="asset-description-text"></p>
+            </div>
+
+        </div>
+
+        <script src="project-detail.js"></script>
+    </body>
+</html>
