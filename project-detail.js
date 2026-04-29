@@ -21,16 +21,24 @@ async function loadProjectAssets() {
 
     document.title = projectData.title + ' - Thomas Handgraaf Portfolio';
 
-    document.getElementById('project-title').textContent = projectData.title;
+    const titleElement = document.getElementById('project-title');
+    if (titleElement) {
+      titleElement.textContent = projectData.title;
+    }
 
+    const descriptionElement = document.getElementById('project-description');
     const descriptionText = projectData.detailedDescription || projectData.description;
-    document.getElementById('project-description').innerHTML = descriptionText;
+    if (descriptionElement) {
+      descriptionElement.innerHTML = descriptionText;
+    }
 
     // Set GitHub link if available
     if (projectData.githubUrl) {
       const githubLink = document.getElementById('github-link');
-      githubLink.href = projectData.githubUrl;
-      githubLink.style.display = 'inline-block';
+      if (githubLink) {
+        githubLink.href = projectData.githubUrl;
+        githubLink.style.display = 'inline-block';
+      }
     }
 
     const loadedAssets = [];
@@ -90,8 +98,12 @@ function initCarousel(carouselAssets) {
   const prevBtn = document.getElementById('carousel-prev');
   const nextBtn = document.getElementById('carousel-next');
 
-  prevBtn.addEventListener('click', () => previousAsset());
-  nextBtn.addEventListener('click', () => nextAsset());
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => previousAsset());
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => nextAsset());
+  }
 
   createIndicators();
   enableIndicatorMouseWheelScroll();
@@ -109,6 +121,8 @@ function displayAsset(index) {
 
   const asset = assets[currentAssetIndex];
   const contentContainer = document.getElementById('carousel-content');
+
+  if (!contentContainer) return;
 
   const descriptionElement = document.getElementById('asset-description-text');
   if (descriptionElement) {
@@ -178,6 +192,8 @@ function nextAsset() {
 // -----------------------------
 function createIndicators() {
   const indicatorsContainer = document.getElementById('carousel-indicators');
+  if (!indicatorsContainer) return;
+
   indicatorsContainer.innerHTML = '';
 
   assets.forEach((asset, index) => {

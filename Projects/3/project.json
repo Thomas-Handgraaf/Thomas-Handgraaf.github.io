@@ -1,6 +1,8 @@
 {
   "id": 3,
   "title": "Pixels Game of Life",
+  "main-tags": "Unity, C#",
+  "tags": "DOTS, GPU-Instancing, SRP",
   "githubUrl": "https://github.com/FirePixel8422/Game-Of-living-DOTS",
   "description": "A hyper optimized recreation of Conways Game of Life. <br>Comes with pretty colors.",
   "detailedDescription": "This project is my 3rd recreation of Conways Game of Life. Every time i built it, I made it better then the ones before. In this version, i used GPU based cell rendering and Unity Jobs to calculate the next cell states to minimize cpu usage so a very high simulation speed was possible.<br> I also added color, trails and bloom with post processing to make it look pretty.",

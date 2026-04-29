@@ -6,16 +6,21 @@ async function loadProjects() {
     
     // Keep trying to load projects until we hit a 404
     while (true) {
-      const response = await fetch(`Projects/${projectId}/project.json`);
-      
-      if (!response.ok) {
-        // Silently stop when we can't find a project
+      try {
+        const response = await fetch(`Projects/${projectId}/project.json`).catch(() => ({ ok: false }));
+        
+        if (!response.ok) {
+          // Silently stop when we can't find a project
+          break;
+        }
+        
+        const projectData = await response.json();
+        projects.push(projectData);
+        projectId++;
+      } catch (fetchError) {
+        // Stop loading if there's a fetch error (project doesn't exist)
         break;
       }
-      
-      const projectData = await response.json();
-      projects.push(projectData);
-      projectId++;
     }
 
     // Sort by id to maintain order
