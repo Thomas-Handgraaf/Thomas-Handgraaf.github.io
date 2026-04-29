@@ -1,13 +1,32 @@
 {
   "id": 2,
-  "title": "Data Analysis",
-  "githubUrl": "https://github.com/thomashandgraaf/data-analysis",
-  "description": "A comprehensive data analysis project with insightful visualizations and findings.",
-  "detailedDescription": "This project explores complex datasets using advanced statistical methods and data visualization techniques. It includes exploratory data analysis, predictive modeling, and comprehensive reporting of key findings and insights.",
+  "title": "H.E.A.T.",
+  "main-tags": "Unity, C#, Unity Netcode",
+  "tags": "Multiplayer, FPS",
+  "githubUrl": "https://github.com/FirePixel8422/H.E.A.T._Project",
+  "description": "A hyper optimized real time raycasting solution for audio spatialization in 3D environments.",
+  "detailedDescription": "In this group project, I programmed the mechanics of our multiplayer first person shooter game 'HEAT'.<br> I implemented the player movement, complex gun mechanics and the attachment/upgrades system.<br> I think i managed to do this quite nicely with set recoil patterns, bloom and noticeable differences between hip and ads firing modes.<br> In this Project I spent a lot of time getting the 'feel' of the guns just right. I made a very, VERY big and complex scriptable object for the gun.<br> Because of this, any small thing could be changed per weapon or attachment.",
   "coverImage": "cover.png",
-  "projectUrl": "project.html",
   "assets": {
-    "images": ["cover.png"],
-    "videos": []
+    "images": [
+      {
+        "path": "main-menu.png",
+        "description": "The main menu of the game.<br> Here you can start the game, change settings and view credits."
+      },
+      {
+        "path": "map1.png",
+        "description": "The battlegroudn of the game.<br> Center view."
+      },
+      {
+        "path": "map2.png",
+        "description": "The battlegroudn of the game.<br> Top view."
+      }
+    ],
+    "videos": [
+      {
+        "id": "ZBPN7KKzukY",
+        "description": "This is a demo video showing how much data was truly in the gun scriptable object. Every little thing could be changed per weapon all in its scriptable object. I had a ton of fun customizing every little stat in every gun!<br> The attachments also work in the same way."
+      }
+    ]
   }
 }

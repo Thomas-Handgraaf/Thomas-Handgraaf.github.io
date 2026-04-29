@@ -3,15 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Thomas Handgraaf Portfolio</title>
+        <title>About Me - Thomas Handgraaf Portfolio</title>
         <meta name="description" content>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="main-style.css">
+        <link rel="stylesheet" href="about-style.css">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
     <body>
-        <!-- REPLACE your full current social-banner block with this -->
+        <!-- SOCIAL BANNER -->
         <div class="social-banner">
             <!-- Left -->
             <div class="profile-section">
@@ -24,8 +25,8 @@
 
             <!-- Middle -->
             <div class="nav-links">
-                <a href="#about" class="nav-btn">About Me</a>
-                <a href="#projects" class="nav-btn">Projects</a>
+                <a href="about-me.html" class="nav-btn">About Me:</a>
+                <a href="index.html#projects" class="nav-btn">Projects</a>
             </div>
 
             <!-- Right -->
@@ -52,42 +53,48 @@
             </div>
         </div>
 
-        <div class="hero-section">
-            <h1>Thomas Handgraaf Portfolio</h1>
-            <p>Hello and welcome to my portfolio! Here you can find some info about me and some of my projects.</p>
+        <div class="about-container">
+            <h1>About Me:</h1>
+
+            <section class="about-section">
+                <h2>Who I Am</h2>
+                <p>
+                    Add your introduction here. Tell visitors about yourself,
+                    your background, and what you're passionate about.
+                </p>
+            </section>
+
+            <section class="about-section">
+                <h2>My Skills</h2>
+                <p>
+                    Describe your technical skills and expertise. You can list
+                    programming languages, tools, frameworks, and other abilities
+                    that are relevant to your work.
+                </p>
+            </section>
+
+            <section class="about-section">
+                <h2>My Experience</h2>
+                <p>
+                    Share your professional experience, education, and notable
+                    achievements. This is a great place to highlight your career
+                    journey and what you've learned along the way.
+                </p>
+            </section>
+
+            <section class="about-section">
+                <h2>What I'm Interested In</h2>
+                <p>
+                    Let visitors know about your interests, what excites you, and
+                    what kind of projects or opportunities you're looking for. This
+                    helps people understand what motivates you.
+                </p>
+            </section>
         </div>
 
-        <div id="about" class="about-section-container">
-            <h2>About Me:</h2>
-            
-            <section class="about-section">
-                <h3>Who am I?</h3>
-                <p>
-                    Hello! My name is Thomas Handgraaf, and I've been making games since I was a kid. I am 19 years old and have 5 years of experience in unity so far.<br> I like both playing and making videogames, and I also like playing the piano. Also, a litle chess is fun!<br> I love playing things against or with friends, so ive grown to really like making multiplayer games. Im also a big fan of generation systems and games with complex features.<br>
-                </p>
-            </section>
-
-            <section class="about-section">
-                <h3>My Skills/Experience</h3>
-                <p>
-                    I've worked in Unity and so C# for a little longer then 5 years now, developing a good foundation in game design and programming.<br> I have experience with Multiplayer development (both local and Unity NGO online)
-                    I've also used advanced and big scriptable objects for projects to store anything really.
-                    I've made many games with gridsystems (So far just square grids, but I'd love to use hexagonal grids one day as well).
-                </p>
-            </section>
-
-            <section class="about-section">
-                <h3>What I'm Interested In</h3>
-                <p>
-                    I'm always looking to continue learning new things and improving what I already know.<br> One day I would love to have worked on a game that people really enjoy playing.
-                </p>
-            </section>
+        <div class="page-footer">
+            <a href="index.html#about" class="home-btn">Back to Home</a>
         </div>
-
-        <h2 id="projects">Some Projects:</h2>
-        <div class="projects-container"></div>
-
-        <script src="projects.js"></script>
         <script src="smooth-scroll.js"></script>
     </body>
 </html>

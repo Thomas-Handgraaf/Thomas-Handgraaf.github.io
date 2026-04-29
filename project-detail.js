@@ -1,4 +1,6 @@
-// Load project data and display assets (images and videos)
+// -----------------------------
+// LOAD PROJECT DATA
+// -----------------------------
 async function loadProjectAssets() {
   try {
     const urlParams = new URLSearchParams(window.location.search);
@@ -20,20 +22,28 @@ async function loadProjectAssets() {
     document.title = projectData.title + ' - Thomas Handgraaf Portfolio';
 
     document.getElementById('project-title').textContent = projectData.title;
-    
-    // Convert \n to <br> tags for line breaks in description
+
     const descriptionText = projectData.detailedDescription || projectData.description;
     document.getElementById('project-description').innerHTML = descriptionText;
 
-    const assets = [];
+    // Set GitHub link if available
+    if (projectData.githubUrl) {
+      const githubLink = document.getElementById('github-link');
+      githubLink.href = projectData.githubUrl;
+      githubLink.style.display = 'inline-block';
+    }
 
+    const loadedAssets = [];
+
+    // -----------------------------
+    // IMAGES
+    // -----------------------------
     if (projectData.assets.images && projectData.assets.images.length > 0) {
       projectData.assets.images.forEach(imageData => {
-        // Handle both old format (string) and new format (object)
         const imagePath = typeof imageData === 'string' ? imageData : imageData.path;
         const description = typeof imageData === 'string' ? '' : imageData.description;
-        
-        assets.push({
+
+        loadedAssets.push({
           type: 'image',
           path: `Projects/${projectId}/${imagePath}`,
           alt: projectData.title,
@@ -42,22 +52,21 @@ async function loadProjectAssets() {
       });
     }
 
+    // -----------------------------
+    // YOUTUBE VIDEOS
+    // -----------------------------
     if (projectData.assets.videos && projectData.assets.videos.length > 0) {
       projectData.assets.videos.forEach(videoData => {
-        // Handle both old format (string) and new format (object)
-        const videoPath = typeof videoData === 'string' ? videoData : videoData.path;
-        const description = typeof videoData === 'string' ? '' : videoData.description;
-        
-        assets.push({
+        loadedAssets.push({
           type: 'video',
-          path: `Projects/${projectId}/${videoPath}`,
-          description: description
+          id: videoData.id,
+          description: videoData.description || ''
         });
       });
     }
 
-    if (assets.length > 0) {
-      initCarousel(assets);
+    if (loadedAssets.length > 0) {
+      initCarousel(loadedAssets);
     }
 
   } catch (error) {
@@ -106,13 +115,23 @@ function displayAsset(index) {
     descriptionElement.innerHTML = asset.description || '';
   }
 
+  // Cleanup previous media
   const oldVideo = contentContainer.querySelector('video');
   if (oldVideo) {
     oldVideo.pause();
     oldVideo.src = '';
   }
+
+  const oldIframe = contentContainer.querySelector('iframe');
+  if (oldIframe) {
+    oldIframe.src = '';
+  }
+
   contentContainer.innerHTML = '';
 
+  // -----------------------------
+  // IMAGE
+  // -----------------------------
   if (asset.type === 'image') {
     const img = document.createElement('img');
     img.src = asset.path;
@@ -121,20 +140,26 @@ function displayAsset(index) {
     contentContainer.appendChild(img);
   }
 
+  // -----------------------------
+  // YOUTUBE VIDEO
+  // -----------------------------
   if (asset.type === 'video') {
-    const video = document.createElement('video');
-    video.src = asset.path;
-    video.controls = true;
-    video.autoplay = true;
-    video.muted = true;
-    video.playsInline = true;
-    video.className = 'carousel-asset';
+    const iframe = document.createElement('iframe');
 
-    contentContainer.appendChild(video);
+    iframe.src = `https://www.youtube.com/embed/${asset.id}?autoplay=1&mute=1&rel=0`;
+    iframe.allow = 'autoplay; encrypted-media';
+    iframe.allowFullscreen = true;
+    iframe.className = 'carousel-asset';
+    iframe.style.width = '1000px';
+    iframe.style.height = 'auto';
+    iframe.style.aspectRatio = '16 / 9';
+    iframe.style.border = 'none';
+
+    contentContainer.appendChild(iframe);
   }
 
   updateIndicators();
-  scrollActiveIndicatorIntoView(); // 🔥 added
+  scrollActiveIndicatorIntoView();
 }
 
 // -----------------------------
@@ -159,6 +184,7 @@ function createIndicators() {
     const indicator = document.createElement('div');
     indicator.className = 'carousel-indicator';
 
+    // IMAGE THUMB
     if (asset.type === 'image') {
       const img = document.createElement('img');
       img.src = asset.path;
@@ -166,10 +192,12 @@ function createIndicators() {
       indicator.appendChild(img);
     }
 
+    // YOUTUBE THUMB
     if (asset.type === 'video') {
-      const video = document.createElement('video');
-      video.src = asset.path;
-      indicator.appendChild(video);
+      const img = document.createElement('img');
+      img.src = `https://img.youtube.com/vi/${asset.id}/hqdefault.jpg`;
+      img.alt = `Video ${index + 1}`;
+      indicator.appendChild(img);
 
       const badge = document.createElement('div');
       badge.className = 'video-badge';
@@ -178,7 +206,6 @@ function createIndicators() {
     }
 
     indicator.addEventListener('click', () => displayAsset(index));
-
     indicatorsContainer.appendChild(indicator);
   });
 
@@ -197,7 +224,7 @@ function updateIndicators() {
 }
 
 // -----------------------------
-// SCROLL SYNC (NEW)
+// SCROLL SYNC
 // -----------------------------
 function scrollActiveIndicatorIntoView() {
   const indicators = document.querySelectorAll('.carousel-indicator');
@@ -220,7 +247,7 @@ function enableIndicatorMouseWheelScroll() {
 
   if (!indicatorsContainer) return;
 
-  indicatorsContainer.addEventListener('wheel', (e) => {
+  indicatorsContainer.addEventListener('wheel', function(e) {
     e.preventDefault();
 
     indicatorsContainer.scrollBy({

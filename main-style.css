@@ -2,26 +2,32 @@
     box-sizing: border-box;
 }
 
-body {
-    background: linear-gradient(135deg, #141e30, #243b55);
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    color: #333;
-}
-
 
 /* #region Social Banner (Discord/LinkedIn/GitHub/Email) */
 .social-banner {
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
     padding: 12px 25px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     display: flex;
-    justify-content: space-between; /* 🔥 key change */
+    justify-content: space-between;
     align-items: center;
+}
+/* Add this so content doesn’t hide behind it */
+body {
+    background: linear-gradient(135deg, #141e30, #243b55);
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 70px;
+    font-family: 'Inter', sans-serif;
+    color: #333;
 }
 
 .social-links {
@@ -94,9 +100,63 @@ body {
     font-size: 1em;
     font-weight: 500;
     color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.profile-name:hover {
+    opacity: 0.8;
+}
+
+.profile-link {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.profile-link:hover .profile-pic {
+    opacity: 0.8;
 }
 
 /* #endregion */
+
+
+/* Center navigation */
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #d7e9ff;
+}
+
+.nav-btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-btn:hover::after {
+    width: 100%;
+}
 
 /* #region Hero Section */
 .hero-section {
@@ -130,6 +190,42 @@ body > .hero-section > p {
     font-size: 1.1em;
     margin: 0;
     line-height: 1.6;
+}
+/* #endregion */
+
+/* #region About Section */
+.about-section-container {
+    padding: 10px 25px 10px 25px;
+    max-width: 100%;
+    margin: 0;
+}
+
+.about-section-container h2 {
+    color: white;
+    font-size: 1.8em;
+    margin: 0 0 15px 0;
+}
+
+.about-section {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.about-section h3 {
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.15em;
+    margin: 0 0 8px 0;
+}
+
+.about-section p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 0;
 }
 /* #endregion */
 

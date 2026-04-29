@@ -1,0 +1,61 @@
+/* About Page Styles */
+body {
+    padding-top: 90px;
+}
+
+.about-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about-container h1 {
+    color: white;
+    font-size: 2.5em;
+    margin: 0 0 40px 0;
+    text-align: center;
+}
+
+.about-section {
+    margin-bottom: 40px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.about-section h2 {
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.5em;
+    margin: 0 0 15px 0;
+}
+
+.about-section p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: 15px;
+    }
+
+    .about-container h1 {
+        font-size: 2em;
+    }
+
+    .about-section {
+        padding: 20px;
+    }
+
+    .about-section h2 {
+        font-size: 1.3em;
+    }
+
+    .about-section p {
+        font-size: 1em;
+    }
+}

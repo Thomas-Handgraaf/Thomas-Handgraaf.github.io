@@ -6,10 +6,60 @@
         <title>Loading Project...</title>
         <meta name="description" content>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="main-style.css">
         <link rel="stylesheet" href="project-style.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
     <body>
-        <h1 id="project-title"></h1>
+        <!-- SOCIAL BANNER -->
+        <div class="social-banner">
+            <!-- Left -->
+            <div class="profile-section">
+                <a href="index.html" class="profile-link">
+                    <img src="profile.jpg" alt="Profile Picture"
+                        class="profile-pic">
+                </a>
+                <a href="index.html" class="profile-name">Thomas Handgraaf</a>
+            </div>
+
+            <!-- Middle -->
+            <div class="nav-links">
+                <a href="index.html#about" class="nav-btn">About Me</a>
+                <a href="index.html#projects" class="nav-btn">Projects</a>
+            </div>
+
+            <!-- Right -->
+            <div class="social-links">
+                <a href="https://discord.com/users/fire_pixel" target="_blank"
+                    rel="noopener noreferrer" title="Discord"
+                    class="social-btn discord-btn">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="https://linkedin.com/in/thomas-handgraaf-578aa4364/"
+                    target="_blank" rel="noopener noreferrer" title="LinkedIn"
+                    class="social-btn linkedin-btn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/FirePixel8422" target="_blank"
+                    rel="noopener noreferrer" title="GitHub"
+                    class="social-btn github-btn">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:bmthandgraaf@hotmail.com" title="Email"
+                    class="social-btn email-btn">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="title-section">
+            <h1 id="project-title"></h1>
+            <a id="github-link" href="" target="_blank" rel="noopener noreferrer" class="github-button" style="display: none;">
+                See on GitHub
+            </a>
+        </div>
+        
         <p id="project-description"></p>
 
         <div class="carousel-layout">
@@ -24,6 +74,7 @@
 
                 <div id="carousel-indicators-container">
                     <div id="carousel-indicators"></div>
+                    <a href="index.html#projects" class="home-btn">Back to Projects</a>
                 </div>
             </div>
 
@@ -35,5 +86,6 @@
         </div>
 
         <script src="project-detail.js"></script>
+        <script src="smooth-scroll.js"></script>
     </body>
 </html>
